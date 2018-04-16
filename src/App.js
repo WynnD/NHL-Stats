@@ -26,14 +26,14 @@ class App extends Component {
 
   barGraph () {
     let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    const scale = d3.scaleLinear().domain([0, 10]).range([0, 100])
+    const scale = d3.scaleLinear().domain([0, 10]).range([0, 1])
     const chart = d3.select('.chart')
     const bars = chart.selectAll('.bar')
     const barUpdate = bars.data(array)
     const barEnter = barUpdate.enter().append('div')
       .attr('class', 'bar')
-      .style('width', d => scale(d) + '%')
-      .style('background-color', d => `rgb(255, ${255 * (scale(d) / 100.0)}, 255)`)
+      .style('width', d => scale(d) * 100 + '%')
+      .style('background-color', d => `rgb(255, ${Math.floor(255 * scale(d))}, 255)`)
       .style('text-align', 'right')
       .text(d => d)
   }
