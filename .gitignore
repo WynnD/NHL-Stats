@@ -23,6 +23,9 @@ chrome-user-data
 *.swp
 *.swo# See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# ignore heroku env file
+.env
+
 # dependencies
 /node_modules
 
